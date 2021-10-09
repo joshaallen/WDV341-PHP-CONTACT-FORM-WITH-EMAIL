@@ -1,5 +1,4 @@
 <?php 
-include 'emailer.php';
 //Setting up data model
     $inFirstName;
     $inLastName;
@@ -18,12 +17,7 @@ $inComment = strip_tags($_POST['comment']);
 $mailTo = "joshuaa2003@joshuaallen.info";
 
 //Building Email
-$subject = "$inFirstName $inLastName";
-$email = new Emailer();
-$email->set_sendersAddress("$inEmail");
-$email->set_subjectLine("$subject");
-$email->set_message("$inComment");
-$email->sendEmail($mailTo);
+
 }
 ?>;
 <html lang="en">
