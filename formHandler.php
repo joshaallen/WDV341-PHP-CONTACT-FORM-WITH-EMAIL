@@ -14,10 +14,30 @@ $inLastName = strip_tags($_POST['lastName']);
 $inEmail = $_POST['email'];
 $reasons = $_POST['reasons'];
 $inComment = strip_tags($_POST['comment']);
-$mailTo = "joshuaa2003@joshuaallen.info";
-
 //Building Email
+$mailTo = "$inEmail, joshuaa2003@joshuaallen.info";
+$subject = "Thank You for contacting us $inFirstName $inLastName";
+$message = '
+<html>
+<head>
+<title>New York Giants Fan Page Email</title>
+</head>
+<body style="background-color: #4373a7; padding: 30px 0 0 30px; color:white; height:300px; border-radius: 50px 20px; 
+">
+<p>Dear ' . $inFirstName . ',</p>
+<p>We received your comment on ' . $date . ' and appreciate you contacting us for ' . $reasons . '</p>
+<p>We look forward to seeing more of you. <strong><span style="text-transform: uppercase;font-size: 30px;">Go <span style="color: red;">Giants</span>!!!!!</span></strong></p>
+</body>
+</html>
+';
 
+//Set content-type when sending HTML email
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=ISO-8859-1" . "\r\n";
+
+$headers .= 'From: <joshuaa2003@joshuaallen.info>' . "\r\n";
+
+mail($to,$subject,$message,$headers);
 }
 ?>;
 <html lang="en">
