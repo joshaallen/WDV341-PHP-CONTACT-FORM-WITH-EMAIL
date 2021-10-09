@@ -7,6 +7,7 @@ include 'emailer.php';
     $reasons;
     $inComment;
     $mailTo;
+    $date;
 if(isset($_POST['submit'])){
   //Processing form data
 $inFirstName = strip_tags($_POST['firstName']);
@@ -24,8 +25,7 @@ $email->set_subjectLine("$subject");
 $email->set_message("$inComment");
 $email->sendEmail($mailTo);
 }
-?>
-<!DOCTYPE html>
+?>;
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -50,7 +50,7 @@ $email->sendEmail($mailTo);
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
             <span class="icon-bar" style="color:black;"></span>
-            <span class="icon-bar" style="color:black;"></span>
+            <sp class="icon-bar" style="colo;
             <span class="icon-bar" style="color:black;"></span>
           </button>
           <a href="#" navbar-brand>
