@@ -105,17 +105,11 @@ mail($to,$subject,$message,$headers);
     <div class="row">
       <div class="col-sm-5">
       <p style="height:600px;width:600px;margin:0 auto; background-color:lightblue">
-    <?php echo $_POST['firstName'] ?>
-    <br>
-    <?php echo $_POST['lastName'] ?>
-    <br>
-    <?php echo $_POST['email'] ?> 
-    <br>
-    <?php echo $_POST['reasons'] ?>
-    <br>
-    <?php echo $_POST['contact'] ?>
-    <br>
-    <?php echo $_POST['comment'] ?>
+      
+    <?php foreach($_POST['submit'] as $row){
+      echo  $row ;
+    }
+    ?>
   </p>
       </div>
     </div>
