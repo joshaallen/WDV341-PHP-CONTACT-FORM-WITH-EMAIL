@@ -8,12 +8,14 @@
     $mailTo;
     $date;
 if(isset($_POST['submit'])){
-  //Processing form data
+//Processing form data
+$date = date('m/d/Y');
 $inFirstName = strip_tags($_POST['firstName']);
 $inLastName = strip_tags($_POST['lastName']);
 $inEmail = $_POST['email'];
 $reasons = $_POST['reasons'];
 $inComment = strip_tags($_POST['comment']);
+}
 //Building Email
 $mailTo = "$inEmail, joshuaa2003@joshuaallen.info";
 $subject = "Thank You for contacting us $inFirstName $inLastName";
@@ -37,8 +39,8 @@ $headers .= "Content-type:text/html;charset=ISO-8859-1" . "\r\n";
 
 $headers .= 'From: <joshuaa2003@joshuaallen.info>' . "\r\n";
 
-mail($to,$subject,$message,$headers);
-}
+mail($mailTo,$subject,$message,$headers);
+
 ?>;
 <html lang="en">
 <head>
@@ -102,18 +104,16 @@ mail($to,$subject,$message,$headers);
     <div class="jumbotron">
       <h1>Contact Us</h1>
     </div>
-    <div class="row">
-      <div class="col-sm-5">
-      <p style="height:600px;width:600px;margin:0 auto; background-color:lightblue">
-      
-    <?php foreach($_POST['submit'] as $row){
-      echo  $row ;
-    }
+        <h3 style="text-align:center;color: white;">Thank for your submission!!!</h3>
+      <div style="font-size: 20px;text-align: center;height: 400px; background-color: white;border-radius: 50px 50px;box-shadow: 5px 10px 8px #888888;">
+      <?php
+      foreach($_POST as $key => $value) {
+        
+        echo '<p style="border-bottom:2px solid #4373a7;margin-bottom: 40px;">' . $key . " " . "Value is: " .  $value . "</p>" ;
+      }
     ?>
-  </p>
       </div>
     </div>
-  </div>
   <!--end of container-->
 </body>
 </html>
